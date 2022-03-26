@@ -10,4 +10,8 @@ public class PessoaJuridica extends Pessoa {
         super(nome, telefone, endereco, cidade, uf, cep);
         this.setLimiteDeCredito(limiteDeCredito);
     }
+    @Override
+    public String toString() {
+        return "Empresa: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nLimite de Crédito: "+this.getLimiteDeCredito();
+    }
 }

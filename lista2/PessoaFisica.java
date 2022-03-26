@@ -29,4 +29,12 @@ public class PessoaFisica extends Pessoa {
         this.setCargo(cargo);
         this.setSalario(salario);
     }
+    @Override
+    public String toString(){
+        if(limiteDeCredito>0){
+            return "Cliente: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nLimite de Crédito: "+this.getLimiteDeCredito();
+        } else {
+            return "Funcionário: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nCargo: "+this.getCargo()+"/nSalário: "+this.getSalario();
+        }
+    }
 }
