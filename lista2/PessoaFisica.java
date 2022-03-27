@@ -32,9 +32,9 @@ public class PessoaFisica extends Pessoa {
     @Override
     public String toString(){
         if(limiteDeCredito>0){
-            return "Cliente: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nLimite de Crédito: "+this.getLimiteDeCredito();
+            return "Cliente: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nLimite de Crédito: R$"+this.getLimiteDeCredito();
         } else {
-            return "Funcionário: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nCargo: "+this.getCargo()+"/nSalário: "+this.getSalario();
+            return "Funcionário: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nCargo: "+this.getCargo()+"/nSalário: R$"+this.getSalario();
         }
     }
 }

@@ -1,6 +1,7 @@
 public class Empresa {
     private static final int MAX_CLIENTES = 100;
     private static final int MAX_FUNCIONARIOS = 100;
+    private String nomeEmpresa;
     private Pessoa[] clientes;
     private int numClientes;
     private PessoaFisica[] funcionarios;
@@ -38,6 +39,9 @@ public class Empresa {
             }
         }
     }
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
+    }
     public Pessoa[] getClientes() {
         return clientes;
     }
@@ -53,6 +57,9 @@ public class Empresa {
     public PessoaFisica getPresidente() {
         return presidente;
     }
+    public void setNomeEmpresa(String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
+    }
     public void setNumClientes() {
         this.numClientes++;
     }
@@ -60,19 +67,35 @@ public class Empresa {
         this.numFuncionarios++;
     }
     public void setPresidente(PessoaFisica presidente) {
-        this.validarPresidente(presidente);
-        this.presidente = presidente;
+        if(this.validarPresidente(presidente)){
+            this.presidente = presidente;
+        }
     }
     private boolean validarPresidente(PessoaFisica presidente){
-        for(int i = 0;i<this.funcionarios.length;i++){
-            if(presidente==this.funcionarios[i]){
+        for(int i = 0;i<this.getNumFuncionarios();i++){
+            if(presidente.equals(this.funcionarios[i])){
                 return true;
             }
         }
         return false;
     }
-    public Empresa(){
+    public Empresa(String nomeEmpresa){
+        this.setNomeEmpresa(nomeEmpresa);
         clientes = new Pessoa[MAX_CLIENTES];
         funcionarios = new PessoaFisica[MAX_FUNCIONARIOS];
+    }
+    public String listaDeFuncionarios(){
+        String funcionarios = "Funcionários da empresa "+this.getNomeEmpresa()+"/n";
+        for(int i = 0;i<this.getNumFuncionarios();i++){
+            funcionarios += this.funcionarios[i].toString()+"/n";
+        }
+        return funcionarios;
+    }
+    public String listaDeClientes(){
+        String clientes = "Clientes da empresa "+this.getNomeEmpresa()+"/n";
+        for(int i = 0;i<this.getNumClientes();i++){
+            clientes += this.clientes[i].toString()+"/n";
+        }
+        return clientes;
     }
 }

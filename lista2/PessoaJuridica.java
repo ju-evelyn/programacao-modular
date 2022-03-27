@@ -12,6 +12,6 @@ public class PessoaJuridica extends Pessoa {
     }
     @Override
     public String toString() {
-        return "Empresa: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nLimite de Crédito: "+this.getLimiteDeCredito();
+        return "Empresa: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nLimite de Crédito: R$"+this.getLimiteDeCredito();
     }
 }
