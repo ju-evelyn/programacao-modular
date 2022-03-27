@@ -98,4 +98,7 @@ public class Empresa {
         }
         return clientes;
     }
+    public String toString(){
+        return "A empresa "+this.getNomeEmpresa()+" é presidida por "+this.getPresidente().getNome()+", possui "+this.getNumClientes()+" clientes e "+this.getNumFuncionarios()+" funcionários.";
+    }
 }
