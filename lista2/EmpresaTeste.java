@@ -1,8 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-
 public class EmpresaTeste {
     Empresa empresa;
     PessoaFisica funcionario1;
@@ -11,7 +9,6 @@ public class EmpresaTeste {
     PessoaFisica cliente1;
     PessoaJuridica cliente2;
     PessoaFisica qualquer;
-
     @BeforeEach
     public void init(){
         empresa = new Empresa("Empresa Teste");

@@ -6,6 +6,5 @@ public class ClienteTeste {
     public void testeConstrutor(){
         cliente = new Cliente(5000.0);
         assertEquals("Limite de Crédito: R$5000,00", cliente.toString());
-    }
-    
+    }   
 }
