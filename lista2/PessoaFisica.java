@@ -1,40 +1,20 @@
 public class PessoaFisica extends Pessoa {
-    private String cargo;
-    private float salario;
-    private float limiteDeCredito;
-    public String getCargo() {
-        return cargo;
-    }
-    public float getSalario() {
-        return salario;
-    }
-    public float getLimiteDeCredito() {
-        return limiteDeCredito;
-    }
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-    public void setSalario(float salario) {
-        this.salario = salario;
-    }
-    public void setLimiteDeCredito(float limiteDeCredito) {
-        this.limiteDeCredito = limiteDeCredito;
-    }
-    public PessoaFisica(String nome, String telefone, String endereco, String cidade, String uf, String cep, float limiteDeCredito) {
+    private Cliente cliente;
+    private Funcionario funcionario;
+    public PessoaFisica(String nome, String telefone, String endereco, String cidade, String uf, String cep, double limiteDeCredito) {
         super(nome, telefone, endereco, cidade, uf, cep);
-        this.setLimiteDeCredito(limiteDeCredito);
+        cliente = new Cliente(limiteDeCredito);
     }
-    public PessoaFisica(String nome, String telefone, String endereco, String cidade, String uf, String cep, String cargo, float salario) {
+    public PessoaFisica(String nome, String telefone, String endereco, String cidade, String uf, String cep, String cargo, double salario) {
         super(nome, telefone, endereco, cidade, uf, cep);
-        this.setCargo(cargo);
-        this.setSalario(salario);
+        funcionario = new Funcionario(cargo, salario);
     }
     @Override
     public String toString(){
-        if(limiteDeCredito>0){
-            return "Cliente: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nLimite de Crédito: R$"+this.getLimiteDeCredito();
+        if(cliente!=null){
+            return "Cliente: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nLimite de Crédito: R$"+cliente.getLimiteDeCredito();
         } else {
-            return "Funcionário: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nCargo: "+this.getCargo()+"/nSalário: R$"+this.getSalario();
+            return "Funcionário: "+this.getNome()+"/nTelefone: "+this.getTelefone()+"/nEndereço: "+this.getEndereco()+", "+this.getCidade()+", "+this.getUf()+"/nCargo: "+funcionario.getCargo()+"/nSalário: R$"+funcionario.getSalario();
         }
     }
 }

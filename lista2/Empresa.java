@@ -7,6 +7,11 @@ public class Empresa {
     private PessoaFisica[] funcionarios;
     private int numFuncionarios;
     private PessoaFisica presidente;
+    public Empresa(String nomeEmpresa){
+        this.setNomeEmpresa(nomeEmpresa);
+        clientes = new Pessoa[MAX_CLIENTES];
+        funcionarios = new PessoaFisica[MAX_FUNCIONARIOS];
+    }
     public void addCliente(Pessoa cliente) {
         if(this.getNumClientes()<MAX_CLIENTES){
             this.clientes[this.getNumClientes()] = cliente;
@@ -39,6 +44,28 @@ public class Empresa {
             }
         }
     }
+    private boolean validarPresidente(PessoaFisica presidente){
+        for(int i = 0;i<this.getNumFuncionarios();i++){
+            if(presidente.equals(this.funcionarios[i])){
+                return true;
+            }
+        }
+        return false;
+    }
+    public String listaDeFuncionarios(){
+        String funcionarios = "Funcionários da empresa "+this.getNomeEmpresa()+"/n";
+        for(int i = 0;i<this.getNumFuncionarios();i++){
+            funcionarios += this.funcionarios[i].toString()+"/n";
+        }
+        return funcionarios;
+    }
+    public String listaDeClientes(){
+        String clientes = "Clientes da empresa "+this.getNomeEmpresa()+"/n";
+        for(int i = 0;i<this.getNumClientes();i++){
+            clientes += this.clientes[i].toString()+"/n";
+        }
+        return clientes;
+    }
     public String getNomeEmpresa() {
         return nomeEmpresa;
     }
@@ -70,33 +97,6 @@ public class Empresa {
         if(this.validarPresidente(presidente)){
             this.presidente = presidente;
         }
-    }
-    private boolean validarPresidente(PessoaFisica presidente){
-        for(int i = 0;i<this.getNumFuncionarios();i++){
-            if(presidente.equals(this.funcionarios[i])){
-                return true;
-            }
-        }
-        return false;
-    }
-    public Empresa(String nomeEmpresa){
-        this.setNomeEmpresa(nomeEmpresa);
-        clientes = new Pessoa[MAX_CLIENTES];
-        funcionarios = new PessoaFisica[MAX_FUNCIONARIOS];
-    }
-    public String listaDeFuncionarios(){
-        String funcionarios = "Funcionários da empresa "+this.getNomeEmpresa()+"/n";
-        for(int i = 0;i<this.getNumFuncionarios();i++){
-            funcionarios += this.funcionarios[i].toString()+"/n";
-        }
-        return funcionarios;
-    }
-    public String listaDeClientes(){
-        String clientes = "Clientes da empresa "+this.getNomeEmpresa()+"/n";
-        for(int i = 0;i<this.getNumClientes();i++){
-            clientes += this.clientes[i].toString()+"/n";
-        }
-        return clientes;
     }
     public String toString(){
         return "A empresa "+this.getNomeEmpresa()+" é presidida por "+this.getPresidente().getNome()+", possui "+this.getNumClientes()+" clientes e "+this.getNumFuncionarios()+" funcionários.";

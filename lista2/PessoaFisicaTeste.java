@@ -1,9 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.Test;
-
 public class PessoaFisicaTeste {
-    Pessoa pessoa;
+    PessoaFisica pessoa;
     @Test
     public void testeConstrutorCliente(){
         pessoa = new PessoaFisica("Joao","(31)91234-5678","Rua dos Bobos, número 0", "Belo Horizonte", "MG", "31555-500", 5000);
